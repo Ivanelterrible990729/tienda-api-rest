@@ -91,7 +91,7 @@ class RegisterTest extends TestCase
         ]);
 
         $response = $this->post(route('auth.register'), $vendedor);
-        $response->assertSessionHasNoErrors();
+        $response->assertJsonMissingValidationErrors();
         $response->assertStatus(201);
         $response->assertJson([
             'message' => 'Usuario registrado con éxito.',

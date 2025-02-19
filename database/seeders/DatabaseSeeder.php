@@ -13,10 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Estos seeders se utilizan únicamente en testing.
+        // --------- NO UTILZARLOS EN PRODUCCIÓN. -------------
 
         $this->call([
             UserSeeder::class,
+            TiendaSeeder::class,
         ]);
     }
 }

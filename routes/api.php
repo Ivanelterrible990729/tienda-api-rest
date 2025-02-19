@@ -2,6 +2,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TiendaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,12 +18,10 @@ Route::prefix('auth')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
 
     // LOGOUT
-    // -------------------------------------------------------------
+    // =============================================================
     Route::post('auth/logout', [AuthController::class, 'logout'])->name('auth.logout');
 
+    // TIENDAS
+    // =============================================================
+    Route::apiResource('tiendas', TiendaController::class);
 });
-
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');

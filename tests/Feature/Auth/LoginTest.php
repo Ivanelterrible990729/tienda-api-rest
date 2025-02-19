@@ -53,7 +53,7 @@ class LoginTest extends TestCase
 
         $response = $this->post(route('auth.login'), $credentials);
         $response->assertStatus(200);
-        $response->assertSessionHasNoErrors();
+        $response->assertJsonMissingValidationErrors();
         $this->assertTrue(!empty($user->tokens));
     }
 
